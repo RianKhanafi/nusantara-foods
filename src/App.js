@@ -1,26 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import './App.css'
+import '../node_modules/bootstrap/dist/js/bootstrap.min.js';
+import jquery from 'jquery'
+import 'bootstrap/dist/css/bootstrap.min.css';
+// root 
+import Home from './Screens/Home'
+import Login from './Screens/Login'
+import registration from './Screens/registration'
+
+
+class App extends Component {
+  constructor(props) {
+    super()
+    this.state = {
+      data: []
+    }
+  }
+
+  render() {
+    return (
+      <div className="container-fluid pl-0 pr-0 overflow-hidden">
+        <Router>
+          <Route path={'/home'} component={Home} />
+          <Route path={'/signin'} component={Login} />
+          <Route path={'/signup'} component={registration} />
+        </Router>
+      </div>
+    )
+  }
 }
 
-export default App;
+export default App
+
+
+
+// https://bit.ly/2NUaaE4 => dialog example

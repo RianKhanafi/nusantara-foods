@@ -1,22 +1,178 @@
-.App {
-  text-align: center;
+
+.sidebar{
+  background-color: white;
+  box-shadow: 5px 0 5px -5px rgba(0,0,0,0.3);
+  height: 600px;
+  border-top:1px solid #eaeaea;
+}
+.navbar{
+  box-shadow: 0 5px 5px -5px rgba(0,0,0,0.3);
+}
+button.navbar-toggler{
+  border:0px;
+}
+.side-right{
+  border-left:2px solid #eaeaea;
+}
+.cnt{
+  background-color: red;
+}
+.cart{
+  border-left:2px solid #eaeaee;
+}
+.bg-nav{
+  background-color: white;
+}
+.card-img{
+  width:200px;
+  height:170px;
+}
+.card{
+  height:330px;
+  border-radius: 20px !important;
+}
+.card img, .card-body{
+  border-radius: 20px !important;
 }
 
-.App-logo {
-  height: 40vmin;
+.login-sec .card{
+  border-radius: 0px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* crusor list item */
+.list-group-item:hover{
+  cursor: pointer;
+  transition: all .1s ease-in-out;
+  transform: scale(1.02);
 }
 
-.App-link {
-  color: #09d3ac;
+
+/* Modal */
+
+.modal label{
+  font-weight: bold;
+  margin-top: .5rem;
+}
+.modal-header{
+    border-top-left-radius: .1rem !important;
+    border-top-right-radius: .1rem !important;
+    border-bottom:none !important;
+}
+
+.modal-footer{
+  border-top: none !important;
+  border-bottom-right-radius: .1rem !important;
+  border-bottom-left-radius: .1rem !important;
+}
+.card-body{
+  background-color:#eaedff !important;
+  transition:  .3s ease-in-out;
+}
+.card-body:hover{
+  transform: scale(1.05);
+}
+.card-body .btn-primary:hover{
+  transition:  .3s ease-in-out;
+  transform: scale(1.05);
+
+}
+.card-body:hover > .card{
+  border:5px solid red;
+}
+
+/* button */
+.btn-primary{
+  background-color: #2d53fe !important;
+  border-color: #2d53fe !important;
+  border-radius: 50px !important;
+}
+
+.btn-outline-primary{
+  border-color:#2d53fe;
+}
+.btn-outline-primary:hover{
+  background-color: #2d53fe;
+}
+
+.btn-danger{
+  border-radius: 50px !important;
+  margin-top: .5rem;
+}
+
+/* jumbotron */
+.jumbotron{
+  border-radius: 20px !important;
+  background-color: rgb(45, 83, 254, 0.1) !important;
+}
+ 
+/* delete */
+.delete i{
+  color:#f44336; 
+  background-color:white;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  padding-left: 7px;
+  padding-top: 5px;
+}
+
+/* drop up card */
+.dropdown-menu{
+  border-radius: 20px !important;
+}
+.dropdown-toggle:hover{
+  transform: scale(1.05);
+}
+
+
+
+
+/* input */
+
+input[type="search"], .select, option, .btn-outline-primary{
+  border-radius: 20px !important;
+}
+
+
+
+
+/* login */
+.log-right{
+  background-color: #eaedff;
+  height:500px;
+  border-top-right-radius: 50px;
+}
+.log-right{
+  margin-left:-3rem !important;
+}
+.log-left{
+  position: relative;
+  overflow:hidden;
+  height:450px;
+  margin-top: 25px;
+  border-bottom-left-radius: 50px;
+}
+.log-left img{
+  transform: rotate(90deg);
+  margin-left:-180px;
+}
+
+
+.text-login{
+  margin-top:8rem;
+  margin-bottom: 2rem;
+}
+.login input{
+  border-radius: 50px;
+}
+
+
+/* navigation-pahgination */
+
+nav.navigation{
+  border-radius: 50px !important; 
+}
+.pagination{
+  margin-top:.5rem;   
+
 }

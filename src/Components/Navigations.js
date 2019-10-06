@@ -33,9 +33,9 @@ class Navigations extends Component {
                 <div className="col-md-9  mr-0 pr-0">
                     <nav className="navbar navbar-light bg-nav">
                         <button className="navbar-toggler" id="side-toggle" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span className="navbar-toggler-icon"></span>
+                            <i class="fa fa-bars"></i>
                         </button>
-                        <a className="navbar-brand">Food Item</a>
+                        <a className="navbar-brand">Nusantara Food</a>
                         <form className="form-inline">
                             {/* <input type="search" onKeyPress={(e) => this.searchvalue(e)} class="form-control" /> */}
                             <span className="fa fa-search"></span>

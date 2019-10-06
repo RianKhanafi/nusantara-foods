@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 import './App.css'
 import '../node_modules/bootstrap/dist/js/bootstrap.min.js';
-import jquery from 'jquery'
+// import jquery from 'jquery'
 import 'bootstrap/dist/css/bootstrap.min.css';
 // root 
 import Home from './Screens/Home'
@@ -23,9 +23,9 @@ class App extends Component {
     return (
       <div className="container-fluid pl-0 pr-0 overflow-hidden">
         <Router>
-          <Route path={'/home'} component={Home} />
-          <Route path={'/signin'} component={Login} />
+          <Route path={'/login'} component={Login} />
           <Route path={'/signup'} component={registration} />
+          <Route path={'/home'} component={Home} />
         </Router>
       </div>
     )

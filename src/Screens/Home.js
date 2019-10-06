@@ -40,7 +40,7 @@ class Menu extends Component {
                 console.log(err.message)
             })
     }
-    handleAddtoCart(e, item) {
+    handleAddtoCart(event, item) {
         this.setState(state => {
             const cartItem = state.cartItem
             let productAlredyinChart = false
@@ -58,13 +58,13 @@ class Menu extends Component {
             return (cartItem)
         })
     }
-    searchvalue(e) {
-        let value = e.target.value
+    searchvalue(event) {
+        let value = event.target.value
         this.searchProducts(value)
     }
 
-    sort(e) {
-        let sort = e.target.value
+    sort(event) {
+        let sort = event.target.value
         if (sort === 'az') {
             sort = 'asc'
         } else sort = "desc"
@@ -72,42 +72,39 @@ class Menu extends Component {
     }
 
 
-    // searchProducts = async (value) => {
-    //     let url
-    //     url = 'http://localhost:5000/api/v.0.1/products?search='
-    //     if (value === 'desc' || value === 'asc') {
-    //         url = 'http://localhost:5000/api/v.0.1/products?sortBy=name&orderBy='
-    //     }
-    //     await axios.get(url + value)
-    //         .then((result) => {
-    //             console.log(result.data.data)
-    //             this.setState({ data: result.data.data })
-    //         })
-    //         .catch(err => {
-    //             console.log(err)
-    //         })
-    //     return
-    // }
+    searchProducts = async (value) => {
+        let url
+        url = 'http://localhost:5000/api/v.0.1/products?search='
+        if (value === 'desc' || value === 'asc') {
+            url = 'http://localhost:5000/api/v.0.1/products?sortBy=name&orderBy='
+        }
+        await axios.get(url + value)
+            .then((result) => {
+                console.log(result.data.data)
+                this.setState({ data: result.data.data })
+            })
+            .catch(err => {
+                console.log(err)
+            })
+        return
+    }
 
-    handlePrevious = async e => {
+    handlePrevious = async () => {
         if (this.state.clicks < 1) {
             this.state.clicks = 0;
-        }else{
-        this.state.clicks = this.state.clicks - 3
-        this.state.page = this.state.page - 1
+        } else {
+            this.state.clicks = this.state.clicks - 3
+            this.state.page = this.state.page - 1
         }
         await this.pagination()
     }
-    handleNext = async e => {
+    handleNext = async () => {
         this.state.clicks = this.state.clicks + 3
         this.state.page = this.state.page + 1
         await this.pagination()
     }
 
-    pagination = async (e) => {
-        // let pagination = this.state.clicks
-        console.log(this.state.clicks);
-        console.log(this.state.limit);
+    pagination = async () => {
         await axios.get("http://localhost:5000/api/v.0.1/products/paginate?page=" + this.state.clicks + "&limit=" + this.state.limit)
             .then(result => {
                 this.setState({ data: result.data.data })
@@ -126,14 +123,14 @@ class Menu extends Component {
                 <div className="row">
                     <div className="col-md-1 sidebar text-center">
                         <ul className="list-group list-group-flush mt-2">
-                            <li className="list-group-item mb-2  border-0" ><span className="fa  fa-cutlery fa-3x"></span></li>
-                            <li className="list-group-item  mb-2  border-0"><span className="fa  fa-list fa-3x"></span></li>
-                            <li className="list-group-item  mb-2  border-0" data-toggle="modal" data-target="#addData"><span className="fa fa-plus fa-3x"></span></li>
+                            <li className="list-group-item mb-2  border-0" ><span className="fa fa-cutlery fa-2x text-dark"></span></li>
+                            <li className="list-group-item  mb-2  border-0"><span className="fa fa-list fa-2x text-dark"></span></li>
+                            <li className="list-group-item  mb-2  border-0" data-toggle="modal" data-target="#addData"><span className="fa fa-plus fa-2x text-dark"></span></li>
+                            <li className="list-group-item  mb-2  border-0"><a href={'/signin'}><span className="fa fa-sign-out fa-2x text-dark"></span></a></li>
                         </ul>
                     </div>
                     <div className="col-md-8">
-
-                        <div class="row">
+                        <div class="row  mt-3">
                             <div className="col-md-3 pt-2">
                                 <input type="search" onKeyPress={(e) => this.searchvalue(e)} class="form-control" placeholder="search name" />
                             </div>
@@ -147,7 +144,7 @@ class Menu extends Component {
                             <div className="col-md-5">
                                 <nav aria-label="Page navigation example">
                                     <ul class="pagination justify-content-end">
-                                        <button className="page-item  page-link" onClick={this.handlePrevious.bind(this)}> <li class="page-item">Previous</li></button>
+                                        <button className="page-item  page-link" onClick={this.handlePrevious.bind(this)}>Previous</button>
                                         <div class="page-item  page-link">{this.state.page}</div>
                                         <button className="page-item page-link" onClick={this.handleNext.bind(this)}> <li class="page-item">Next</li></button>
                                         {/* <button className="page-item page-link" onClick={this.pagination}> <li class="page-item">Sbm</li></button> */}
@@ -165,11 +162,8 @@ class Menu extends Component {
                         </div>
                     </div>
                 </div>
-
                 <Modal />
                 <Cout cartItem={this.state.cartItem} />
-
-
             </div>
         )
     }

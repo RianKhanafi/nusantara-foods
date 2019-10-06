@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import bg from '../Image/bg-log.jpg'
-import Axios from 'axios'
+// import Axios from 'axios'
 class login extends Component {
     constructor(props) {
         super(props)
@@ -14,7 +14,7 @@ class login extends Component {
         event.preventDefault()
         const data = new FormData(event.target)
         console.log(data);
-        await axios('http://localhost:5000/api/v.0.1/registration/login', event)
+        await axios.post('http://localhost:5000/api/v.0.1/registration/login', data)
             .then(res => {
                 console.log(res);
                 // if (res.data.success === true) {

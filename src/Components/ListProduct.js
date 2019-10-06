@@ -41,7 +41,7 @@ export default class ProductList extends Component {
     handleUpdate = async (event, id) => {
         event.preventDefault()
         const data = new FormData(event.target)
-        fetch("http://localhost:5000/api/v.0.1/products?id=" + id, {
+        fetch("http://localhost:5000/api/v.0.1/products/" + id, {
             method: "PUT",
             body: data
         })
@@ -123,7 +123,7 @@ export default class ProductList extends Component {
                             </div>
                             {/* hidden input */}
                             <input type="hidden" name="updated" />
-                            <input type="hidden" value={this.state.id} name="id" className="form-control" onChange={this.inponChangeHandler} />
+                            <input type="text" value={this.state.id} name="id" className="form-control" onChange={this.inponChangeHandler} />
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-secondary" data-dismiss="modal">Cancle</button>
                                 <button className=" btn btn-primary" >Update</button>

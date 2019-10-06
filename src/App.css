@@ -1,3 +1,7 @@
+.navbar-toggler-icon{
+  color:red !important;
+}
+
 
 .sidebar{
   background-color: white;
@@ -96,7 +100,6 @@ button.navbar-toggler{
 
 .btn-danger{
   border-radius: 50px !important;
-  margin-top: .5rem;
 }
 
 /* jumbotron */
@@ -128,9 +131,12 @@ button.navbar-toggler{
 
 
 /* input */
+/* pagination */
 
-input[type="search"], .select, option, .btn-outline-primary{
+
+input[type="search"], .select, option, .btn-outline-primary, .btn-outline-danger,.page-item{
   border-radius: 20px !important;
+  color:black !important;
 }
 
 
@@ -174,5 +180,24 @@ nav.navigation{
 }
 .pagination{
   margin-top:.5rem;   
-
 }
+
+
+/* font color */
+/* .fa-cutlery{
+  color: #eaedff !important;
+} */
+/* brand */
+/* .navbar-brand{
+  color:#2d53fe !important;
+} */
+
+.modal-content{
+  border-radius:20px !important;
+}
+
+/* empty image */
+.empty-image{
+  margin-left: -30px;
+}
+

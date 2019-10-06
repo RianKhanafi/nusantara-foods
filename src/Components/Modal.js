@@ -25,8 +25,8 @@ export default class modal extends Component {
                     <div className="modal-dialog" role="document">
                         <div className="modal-content">
                             <div className="modal-header">
-                                <h5 className="modal-title" id="exampleModalLabel">Add Item</h5>
-                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                <h5 className="modal-title text-primary" id="exampleModalLabel">Add Item</h5>
+                                <button type="button" className="close text-danger" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
@@ -89,8 +89,8 @@ export default class modal extends Component {
                             {/* hidden input */}
                             <input type="hidden" name="updated" />
                             <div className="modal-footer">
-                                <button type="button" className="btn btn-secondary" data-dismiss="modal">Cancle</button>
-                                <button className=" btn btn-primary" >Add</button>
+                                <button type="button" className="btn btn-outline-danger" data-dismiss="modal">Cancle</button>
+                                <button className=" btn btn-primary w-100" >Add</button>
                             </div>
                         </div>
                     </div>

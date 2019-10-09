@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import Oops from '../Image/oops.png'
+import rupiahFormat from 'rupiah-format'
 
-export default class Cart extends Component {
+
+
+class Cart extends Component {
     render() {
         const { cartItem } = this.props
-
         return (
-
             <div>
                 <div style={{ minHeight: "300px", overflowX: "hidden", borderRadius: "20px" }}>
                     {cartItem.length > 0 ? (
@@ -16,7 +17,7 @@ export default class Cart extends Component {
                                     <img src={'http://localhost:5000/images/' + item.image} height="80" style={{ borderRadius: '20px' }} className="mt-1" />
                                 </div>
                                 <div className="col-md-6">
-                                    <div className="row ml-2">
+                                    <div className="row" style={{ marginLeft: "2px" }} >
                                         <div className="col-md-12 m-0 p-0">
                                             <h6>{item.name}</h6>
                                         </div>
@@ -30,7 +31,7 @@ export default class Cart extends Component {
                                             </table>
                                         </div>
                                         <div className="col-md-12  m-0 p-0">
-                                            <p> Rp.{item.price * item.count},-</p>
+                                            <p> {rupiahFormat.convert(item.price * item.count)}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -40,14 +41,16 @@ export default class Cart extends Component {
                     ) : (<h1><img src={Oops} width="300" className="empty-image" /></h1>)}
                 </div>
                 <div className="mt-5">
-                    <strong>Total : </strong> Rp.{cartItem.reduce((a, c) => (a + c.price * c.count), 0)},-
+                    <strong>Total : </strong>{rupiahFormat.convert(cartItem.reduce((a, c) => (a + c.price * c.count), 0))}
                     <br />
                     <small>*Belum termasuk ppn 10%</small>
                     <input type="submit" value="check out" className="btn btn-primary cout w-100" data-toggle="modal" data-target="#CoutModal" /> <br />
-                    <input type="submit" value="cancele" className="btn btn-outline-danger mt-1 coutcncl w-100" onClick={(e) => this.props.handleRemoveFromcart(e, cartItem)} />
+                    <input type="submit" value="cancel" className="btn btn-outline-danger mt-1 coutcncl w-100" onClick={(e) => this.props.handleRemoveFromcart(e, cartItem)} />
                 </div>
-            </div>
+            </div >
         )
     }
 
 }
+
+export default Cart

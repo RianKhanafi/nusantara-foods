@@ -201,3 +201,41 @@ nav.navigation{
   margin-left: -30px;
 }
 
+
+
+
+
+/* income */
+.card-income{
+  height:200px !important;
+}
+.card-income .card-body{
+  padding-top:3.3rem;
+  border:0;
+}
+.card-income .card-link, .card-one, .card-two, .card-three{
+  color:white; 
+}
+.card-income .card-one{
+  background-image: radial-gradient( circle 561px at 81.4% 88.4%,  rgba(236,111,102,1) 0%, rgba(243,161,131,1) 90% );
+   /* color:black;   */
+}
+.card-income .card-two{
+  background-image: linear-gradient( 108.7deg,  rgba(34,219,231,1) -0.9%, rgba(52,118,246,1) 88.7% );
+  /* color:black;   */
+}
+.card-income .card-three{
+  background-image: linear-gradient( -69.9deg,  rgba(76,79,106,1) 3.2%, rgba(118,124,163,1) 97.6% ); 
+  /* color:black;    */
+}
+
+/* Chart */
+.row-cart{
+  box-shadow: 1px 0px 10px rgba(0,0,0,0.3);
+  border-radius: 20px;
+  margin-top:5rem;
+  margin-bottom: 5rem;
+}
+.fm-revenue{
+  border-radius: 20px !important; 
+}

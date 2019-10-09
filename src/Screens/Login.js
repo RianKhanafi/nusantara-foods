@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import bg from '../Image/bg-log.jpg'
-// import Axios from 'axios'
+import ls from 'local-storage'
+
+
 class login extends Component {
     constructor(props) {
         super(props)
@@ -16,16 +18,19 @@ class login extends Component {
         console.log(data);
         await axios.post('http://localhost:5000/api/v.0.1/registration/login', data)
             .then(res => {
-                console.log(res);
-                // if (res.data.success === true) {
-                //     // this.state.history.push('/')
-                //     console.log(res.data.token);
-                // } else {
-                //     const err = new Error(res.error)
-                //     throw err
-                // }
-                window.location.href = '/home'
+                // console.log(res.data.name);
+                ls.set('token', res.data.token);
+                ls.set('username', res.data.name)
+                localStorage.setItem('token', `Bearer ${res.data.token}`)
+                // ls.set('Authorization', `Bearer ${ res.data.token}`)
+                // this.setState({
+                //     buttonDisabled: true,
+                //     message: 'login success'
+                // })
+                console.log(ls.get('username'));
+                // window.location.href = '/home'
             })
+
             .catch(err => {
                 console.log(err)
                 alert('Error Loading in please try again')
@@ -53,7 +58,7 @@ class login extends Component {
                                         <input type="text" placeholder="password" name="password" class="form-control" />
                                     </div>
                                     <input type="submit" class="btn btn-primary w-100" value="Sign-in" />
-                                    <a href={'/signup'} class="btn btn-outline-primary w-100 mt-1">Sign up</a>
+                                    <a href={'/signup'} class="btn btn-outline-danger w-100 mt-1">Sign up</a>
                                 </div>
                             </form>
                         </div>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-import 'font-awesome/css/font-awesome.min.css';
+
 import Axios from 'axios';
 
 class Navigations extends Component {
@@ -33,7 +33,7 @@ class Navigations extends Component {
                 <div className="col-md-9  mr-0 pr-0">
                     <nav className="navbar navbar-light bg-nav">
                         <button className="navbar-toggler" id="side-toggle" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <i class="fa fa-bars"></i>
+                            {/* <i class="fa fa-bars"></i> */}
                         </button>
                         <a className="navbar-brand">Nusantara Food</a>
                         <form className="form-inline">

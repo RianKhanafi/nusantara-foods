@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import rupiahFormat from 'rupiah-format'
+import ls from 'local-storage'
+
 export default class Cout extends Component {
+    //getUserLogin
 
     handleCout = async (event) => {
         event.preventDefault()
@@ -16,6 +20,7 @@ export default class Cout extends Component {
 
     render() {
         const { cartItem } = this.props
+        const buyer = ls.get('username')
         return (
             <div>
                 <div className="modal fade" id="CoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -36,37 +41,40 @@ export default class Cout extends Component {
                                 <table>
                                     {cartItem.map(item => (
                                         <tr>
-                                            <td width="300"><strong>{item.name}</strong></td>
+                                            <td width="250"><strong>{item.name}</strong></td>
                                             <td width="100"><strong>{item.count}</strong></td>
-                                            <td><strong>{item.price}</strong></td>
+                                            <td><strong>{rupiahFormat.convert(item.price)}</strong></td>
                                         </tr>
                                     ))}
                                 </table>
                                 <table>
                                     <tr>
-                                        <td width="400"><strong>Ppn 10%</strong></td>
-                                        <td><strong>{cartItem.reduce((a, c) => (a + c.price * c.count * 0.1), 0)}</strong></td>
+                                        <td width="350"><strong>Ppn 10%</strong></td>
+                                        <td><strong>{rupiahFormat.convert(cartItem.reduce((a, c) => (a + c.price * c.count * 0.1), 0))}</strong></td>
                                     </tr>
                                     <tr>
                                         <td colspan="2">&nbsp;</td>
                                     </tr>
                                     <tr>
-                                        <td width="400"><strong>Total: </strong></td>
+                                        <td width="350"><strong>Total: </strong></td>
                                         <td>
-                                            <strong>Rp.{cartItem.reduce((a, c) => (a + c.price * c.count + a + c.price * c.count * 0.1), 0)},-</strong>
+                                            <strong>{rupiahFormat.convert((cartItem.reduce((a, c) => (a + c.price * c.count + c.price * c.count * 0.1), 0)))}</strong>
                                         </td>
                                     </tr>
                                 </table>
                             </div>
                             <form onSubmit={this.handleCout}>
+                                <input type="hidden" name="buyer" value={buyer} />
+                                <input type="hidden" name="amount" value={cartItem.reduce((a, c) => (a + c.price * c.count + c.price * c.count * 0.1), 0)} />
                                 {cartItem.map(item => (
                                     <div>
+                                        <input type="hidden" name="ordername" value={item.name} />
                                         <input type="hidden" name="quantity" value={item.count} />
                                         <input type="hidden" name="id" value={item.id} />
                                     </div>
                                 ))}
                                 <div className="modal-footer">
-                                    <button type="button" className="btn btn-outline-danger" data-dismiss="modal">Cancele</button>
+                                    <button type="button" className="btn btn-outline-danger" data-dismiss="modal">Cancel</button>
                                     <button className="btn btn-primary w-100">Checkout</button>
                                 </div>
                             </form>

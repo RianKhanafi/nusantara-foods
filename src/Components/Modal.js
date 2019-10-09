@@ -8,7 +8,7 @@ export default class modal extends Component {
     }
 
     handleSubmit = async (event) => {
-        event.preventDefault()
+        // event.preventDefault()
         const data = new FormData(event.target)
 
         fetch("http://localhost:5000/api/v.0.1/products",
@@ -16,6 +16,7 @@ export default class modal extends Component {
                 method: "POST",
                 body: data
             })
+        // window.location.href = '/home'
     }
 
     render() {
@@ -89,7 +90,7 @@ export default class modal extends Component {
                             {/* hidden input */}
                             <input type="hidden" name="updated" />
                             <div className="modal-footer">
-                                <button type="button" className="btn btn-outline-danger" data-dismiss="modal">Cancle</button>
+                                <button type="button" className="btn btn-outline-danger" data-dismiss="modal">Cancel</button>
                                 <button className=" btn btn-primary w-100" >Add</button>
                             </div>
                         </div>

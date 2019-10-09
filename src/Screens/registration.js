@@ -9,9 +9,11 @@ class registration extends Component {
         fetch('http://localhost:5000/api/v.0.1/registration', {
             method: "POST",
             body: data
+        }).then(res => {
+            console.log(res)
         })
-            .then(res => {
-
+            .catch(err => {
+                console.log(err)
             })
     }
 

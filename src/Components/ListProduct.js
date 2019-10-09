@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import rupiahFormat from 'rupiah-format'
 
 export default class ProductList extends Component {
 
@@ -16,8 +17,6 @@ export default class ProductList extends Component {
             quantity: ''
         }
         this.handleDelete = this.handleDelete.bind(this)
-
-
     }
     getUpdate = async (data) => {
         await axios.get("http://localhost:5000/api/v.0.1/products/" + data)
@@ -42,15 +41,28 @@ export default class ProductList extends Component {
         event.preventDefault()
         const data = new FormData(event.target)
         fetch("http://localhost:5000/api/v.0.1/products/" + id, {
-            method: "PUT",
+            method: "PATCH",
             body: data
         })
+        window.location.href = '/Home'
     }
     handleDelete = async (data) => {
-        fetch("http://localhost:5000/api/v.0.1/products?id=" + data, { method: "DELETE" });
+        // data.preventDefault()
+        // console.log('http://localhost:5000/api/v.0.1/products?id=' + data)
+        if (axios.delete('http://localhost:5000/api/v.0.1/products?id=' + data)) {
+            window.location.href = '/Home'
+        }
+
+        // .then(res => {
+        //     window.location.href = '/Home'
+        // })
+        // .catch(err => {
+        //     console.log(err)
+        // })
+        // window.location.href = '/Home'
     }
-    inponChangeHandler = (e) => {
-        this.setState({ [e.target.name]: e.target.value })
+    inponChangeHandler = (event) => {
+        this.setState({ [event.target.name]: event.target.value })
     }
     render() {
         const modal = (
@@ -123,7 +135,7 @@ export default class ProductList extends Component {
                             </div>
                             {/* hidden input */}
                             <input type="hidden" name="updated" />
-                            <input type="text" value={this.state.id} name="id" className="form-control" onChange={this.inponChangeHandler} />
+                            <input type="hidden" value={this.state.id} name="id" className="form-control" />
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-secondary" data-dismiss="modal">Cancle</button>
                                 <button className=" btn btn-primary" >Update</button>
@@ -133,7 +145,6 @@ export default class ProductList extends Component {
                 </div>
             </form>
         )
-
 
         const ProductList = this.props.products.map(item => (
             <div className="col-md-4 col-sm-8 col-xs-12 mb-2">
@@ -155,7 +166,7 @@ export default class ProductList extends Component {
                             </div>
                         </div>
                         <p className="card-text">{item.name}</p>
-                        <h5 className="card-title">{item.price}</h5>
+                        <h5 className="card-title">{rupiahFormat.convert(item.price)}</h5>
                         <button type="submit" className="btn btn-primary w-100" onClick={(e) => this.props.handleAddtoCart(e, item)} >Add to Cart</button>
                     </div>
                 </div>

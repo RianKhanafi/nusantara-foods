@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import rupiahFormat from 'rupiah-format'
 class CardRevenue extends Component {
     render() {
         return (
@@ -8,7 +8,7 @@ class CardRevenue extends Component {
                     <div class="card card-income">
                         <div class="card-body card-one">
                             <a href="#" class="card-link">Today's Income</a>
-                            <h2 class="card-title mb-0">Rp. 1000.000</h2>
+                            <h2 class="card-title mb-0">{rupiahFormat.convert(this.props.handleCountOrder)}</h2>
                             <a href="#" class="card-link">+2% Yesterday</a>
                         </div>
                     </div>
@@ -16,8 +16,8 @@ class CardRevenue extends Component {
                 <div className="col-md-4">
                     <div class="card card-income">
                         <div class="card-body card-two">
-                            <a href="#" class="card-link">Today's Income</a>
-                            <h2 class="card-title mb-0">Rp. 1000.000</h2>
+                            <a href="#" class="card-link">Orders</a>
+                            <h2 class="card-title mb-0">{this.props.handleOrder}</h2>
                             <a href="#" class="card-link">+2% Yesterday</a>
                         </div>
                     </div>
@@ -25,8 +25,8 @@ class CardRevenue extends Component {
                 <div className="col-md-4">
                     <div class="card card-income">
                         <div class="card-body card-three">
-                            <a href="#" class="card-link">Today's Income</a>
-                            <h2 class="card-title mb-0">Rp. 1000.000</h2>
+                            <a href="#" class="card-link">This Year's Income</a>
+                            <h2 class="card-title mb-0">{rupiahFormat.convert(this.props.handleresYearIncome)}</h2>
                             <a href="#" class="card-link">+2% Yesterday</a>
                         </div>
                     </div>

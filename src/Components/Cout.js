@@ -9,6 +9,7 @@ export default class Cout extends Component {
     handleCout = async (event) => {
         event.preventDefault()
         const data = new FormData(event.target)
+        // console.log(data)
         await axios.post('http://localhost:5000/api/v.0.1/products/reduce', data)
             .then(res => {
                 console.log(res);
@@ -68,9 +69,9 @@ export default class Cout extends Component {
                                 <input type="hidden" name="amount" value={cartItem.reduce((a, c) => (a + c.price * c.count + c.price * c.count * 0.1), 0)} />
                                 {cartItem.map(item => (
                                     <div>
-                                        <input type="hidden" name="ordername" value={item.name} />
-                                        <input type="hidden" name="quantity" value={item.count} />
-                                        <input type="hidden" name="id" value={item.id} />
+                                        <input type="text" name="ordername" value={item.name} />
+                                        <input type="text" name="quantity" value={item.count} />
+                                        <input type="text" name="id" value={item.id} />
                                     </div>
                                 ))}
                                 <div className="modal-footer">

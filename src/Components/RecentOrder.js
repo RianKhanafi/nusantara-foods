@@ -16,10 +16,10 @@ class RecentOrder extends Component {
                         <h1>Recent Order</h1>
                     </div>
                     <div className="col-md-3  pt-3 pb-3">
-                        <select class="form-control fm-revenue form-control-sm mr-2 mt-2">
-                            <option>Week</option>
-                            <option>Month</option>
-                            <option>Year</option>
+                        <select class="form-control fm-revenue form-control-sm mr-2 mt-2" onChange={(event) => this.props.getRecentOrder(event)}>
+                            <option value="week">Weekly</option>
+                            <option value="month">Monthly</option>
+                            <option value="year">Year</option>
                         </select>
                     </div>
                     <div className="col-md-12">
@@ -38,9 +38,10 @@ class RecentOrder extends Component {
                                     <tr>
                                         <th scope="row">#{item.idRecent}</th>
                                         <td>{item.buyer}</td>
-                                        <td>{getTime.getDate(item.date) + ' ' + monthNames[getTime.getMonth(item.date)] + ' ' + getTime.getFullYear(item.date)}</td>
+                                        {/* <td>{getTime.getDate(item.date) + ' ' + monthNames[getTime.getMonth(item.date)] + ' ' + getTime.getFullYear(item.date)}</td> */}
+                                        <td>{item.date}</td>
                                         <td>{item.orders}</td>
-                                        <td>{rupiahFormat.convert(item.amount)}</td>
+                                        <td>{rupiahFormat.convert(item.amountcount)}</td>
                                     </tr>
                                 ))}
                             </tbody>

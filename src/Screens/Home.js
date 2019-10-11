@@ -3,6 +3,8 @@ import axios from 'axios'
 import ls from 'local-storage'
 // import $ from 'jquery'
 import 'font-awesome/css/font-awesome.min.css';
+import { connect } from 'react-redux'
+import { getAll } from '../public/redux/actions/menu'
 
 // component
 import ProductList from '../Components/ListProduct'
@@ -33,25 +35,32 @@ class Menu extends Component {
         await this.getAll()
         // console.log('ComponentDidMount', this.state.data)
     }
-    getAll = async () => {
-        await axios.get('http://localhost:5000/api/v.0.1/products', {
-            headers: {
-                Authorization: localStorage.getItem('token')
-            }
+    async getAll() {
+        const fetch = await getAll()
+        this.props.dispatch(fetch)
+        this.setState({
+            data: this.props.products.menuList, // products get from bottom
+            pages: this.props.products.pages
+            // data: result.data.data
         })
-            .then((result) => {
-                console.log(result.data.data)
-                this.setState(
-                    {
-                        data: result.data.data,
-                        pages: result.data.page
-                    }
-                )
-                // console.log(this.state.pages)
-            })
-            .catch(err => {
-                console.log(err.message)
-            })
+        // await axios.get('http://localhost:5000/api/v.0.1/products', {
+        //     headers: {
+        //         Authorization: localStorage.getItem('token')
+        //     }
+        // })
+        //     .then((result) => {
+        //         console.log(result.data.data)
+        //         this.setState(
+        //             {
+        //                 data: result.data.data,
+        //                 pages: result.data.page
+        //             }
+        //         )
+        //         // console.log(this.state.pages)
+        //     })
+        //     .catch(err => {
+        //         console.log(err.message)
+        //     })
     }
     handleAddtoCart(event, item) {
         this.setState(state => {
@@ -223,7 +232,11 @@ class Menu extends Component {
     }
 }
 
+const mapStateToProps = state => {
+    return {
+        products: state.menuList
+    }
+}
 
+export default connect(mapStateToProps)(Menu)
 // #2d53fe
-
-export default Menu

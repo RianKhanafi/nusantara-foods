@@ -6,23 +6,23 @@ is an frontend application for making orders in at the nusantara food
 - Redux
 
 # Features
-- Register user
-- Login user
-- Log out
-- Home screen
+* Register user
+* Login user
+* Log out
+* Home screen
   - Chart
   - Search
   - Pagination
-- Add menu
-- Update menu
-- Delete menu
-- History
+* Add menu
+* Update menu
+* Delete menu
+* History
   - income and order information
   - Chart Revenue
   - Recent Order
 
 # Run Program 
-  - Clone or download thi repository https://github.com/RianKhanafi/nusantara-foods.git
+  - `Clone or download` this repository https://github.com/RianKhanafi/nusantara-foods.git
   - Choose folder and run in your command
   ```
   $npm start

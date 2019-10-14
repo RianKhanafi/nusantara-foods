@@ -22,21 +22,22 @@ is an frontend application for making orders in at the nusantara food
   - Recent Order
 
 # Run Program 
-  - `Clone or download` this repository https://github.com/RianKhanafi/nusantara-foods.git
+  - Clone or download this repository https://github.com/RianKhanafi/nusantara-foods.git
   - Choose folder and run in your command
   ```
   $npm start
   ```
 # Demo Screenshoot
-- Login
+- __Login__
 ![image](https://user-images.githubusercontent.com/51011550/66734754-82477a80-ee8e-11e9-8e70-ccd506a66675.png)
-- Home screen
+- __Home screen
 ![image](https://user-images.githubusercontent.com/51011550/66734949-347f4200-ee8f-11e9-8b44-fecc447f4e24.png)
-- Add menu
+- __Add menu__
 ![image](https://user-images.githubusercontent.com/51011550/66735163-cedf8580-ee8f-11e9-8ddb-9ec7046ff452.png)
-- Edit ang delete menu
+- __Edit ang delete menu__
+
 ![image](https://user-images.githubusercontent.com/51011550/66735864-c1c39600-ee91-11e9-9c97-6777273b5655.png)
-- Checkout
+- __Checkout__
 ![image](https://user-images.githubusercontent.com/51011550/66734976-4a8d0280-ee8f-11e9-9f5e-3dfe6ec569b2.png)
-- Chart
+- __Chart__
 ![Tangkapan Layar 2019-10-14 pada 14 39 28-fullpage](https://user-images.githubusercontent.com/51011550/66735471-a1dfa280-ee90-11e9-9f9b-ece37e9636cb.png)

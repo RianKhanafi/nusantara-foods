@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 export default class Filter extends Component {
     render() {
         return (
-            // {`${this.props.count()} Products Found.`    }
             <div className="row">
                 <div classhandleSortChangeName="col-md-4"> </div>
                 <div className="col-md-4">

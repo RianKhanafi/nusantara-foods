@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import bg from '../Image/bg-log.jpg'
 import ls from 'local-storage'
-
+// base url
+import Http from '../Http/Http'
 
 class login extends Component {
     constructor(props) {
@@ -15,29 +16,20 @@ class login extends Component {
     handleLogin = async (event) => {
         event.preventDefault()
         const data = new FormData(event.target)
-        console.log(data);
-        await axios.post('http://localhost:5000/api/v.0.1/registration/login', data)
+
+        await Http.post('/registration/login', data)
             .then(res => {
-                // console.log(res.data.name);
                 ls.set('token', res.data.token);
                 ls.set('username', res.data.name)
                 localStorage.setItem('token', `Bearer ${res.data.token}`)
-                // ls.set('Authorization', `Bearer ${ res.data.token}`)
-                // this.setState({
-                //     buttonDisabled: true,
-                //     message: 'login success'
-                // })
                 console.log(ls.get('username'));
-                // window.location.href = '/home'
+                window.location.href = '/home'
             })
-
             .catch(err => {
                 console.log(err)
                 alert('Error Loading in please try again')
             })
     }
-
-
 
     render() {
         return (

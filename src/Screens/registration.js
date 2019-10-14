@@ -1,17 +1,17 @@
 import React, { Component } from 'react'
 // import axios from 'axios'
 import bg from '../Image/bg-log.jpg'
+import Http from '../Http/Http'
+
 class registration extends Component {
 
     handleSignup(event) {
         event.preventDefault()
         const data = new FormData(event.target)
-        fetch('http://localhost:5000/api/v.0.1/registration', {
-            method: "POST",
-            body: data
-        }).then(res => {
-            console.log(res)
-        })
+        Http.post('/registration', data)
+            .then(res => {
+                console.log(res)
+            })
             .catch(err => {
                 console.log(err)
             })

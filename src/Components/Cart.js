@@ -6,8 +6,9 @@ import rupiahFormat from 'rupiah-format'
 
 class Cart extends Component {
     render() {
+
         const { cartItem } = this.props
-        console.log(cartItem)
+
         return (
             <div>
                 <div style={{ minHeight: "300px", overflowX: "hidden", borderRadius: "20px" }}>

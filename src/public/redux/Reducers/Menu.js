@@ -29,6 +29,7 @@ const menuList = (state = initialState, { type, payload }) => {
                 menuList: payload.data,
                 pages: payload.pages
             }
+            // console.log(initialState.menuList)
         default:
             return state
     }

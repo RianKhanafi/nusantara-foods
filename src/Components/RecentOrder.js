@@ -4,11 +4,6 @@ import rupiahFormat from 'rupiah-format'
 class RecentOrder extends Component {
 
     render() {
-        const getTime = new Date()
-        const monthNames = ["January", "February", "March", "April", "May", "June",
-            "July", "August", "September", "October", "November", "December"
-        ];
-
         return (
             <div>
                 <div className="row row-cart">
@@ -16,8 +11,8 @@ class RecentOrder extends Component {
                         <h1>Recent Order</h1>
                     </div>
                     <div className="col-md-3  pt-3 pb-3">
-                        <select class="form-control fm-revenue form-control-sm mr-2 mt-2" onChange={(event) => this.props.getRecentOrder(event)}>
-                            <option value="week">Weekly</option>
+                        <select class="form-control fm-revenue form-control-sm mr-2 mt-2" onChange={(event) => this.props.grOrder(event)}>
+                            <option value="day">day</option>
                             <option value="month">Monthly</option>
                             <option value="year">Year</option>
                         </select>
@@ -26,6 +21,7 @@ class RecentOrder extends Component {
                         <table class="table">
                             <thead>
                                 <tr>
+                                    {/* <th scope="col">No</th> */}
                                     <th scope="col">INVOICES</th>
                                     <th scope="col">CUSTOMERS</th>
                                     <th scope="col">DATE</th>
@@ -39,9 +35,9 @@ class RecentOrder extends Component {
                                         <th scope="row">#{item.idRecent}</th>
                                         <td>{item.buyer}</td>
                                         {/* <td>{getTime.getDate(item.date) + ' ' + monthNames[getTime.getMonth(item.date)] + ' ' + getTime.getFullYear(item.date)}</td> */}
-                                        <td>{item.date}</td>
+                                        <td>{item.date.substr(0, 10)}</td>
                                         <td>{item.orders}</td>
-                                        <td>{rupiahFormat.convert(item.amountcount)}</td>
+                                        <td>{rupiahFormat.convert(item.amount)}</td>
                                     </tr>
                                 ))}
                             </tbody>

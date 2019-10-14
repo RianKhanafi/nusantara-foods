@@ -3,9 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import ls from 'local-storage'
 
 
-
 //redux
-
 
 
 import './App.css'
@@ -32,7 +30,7 @@ class App extends Component {
     return (
       <div className="container-fluid pl-0 pr-0 overflow-hidden">
         <Router>
-          <Route exact path={'/signin'} component={Login} />
+          <Route exact path={'/'} component={Login} />
           <Route exact path={'/signup'} component={registration} />
           <Route exact path={'/home'} component={Home} />
           <Route exact path={'/history'} component={History} />

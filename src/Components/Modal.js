@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Http from '../Http/Http'
 
 export default class modal extends Component {
 
@@ -8,21 +9,21 @@ export default class modal extends Component {
     }
 
     handleSubmit = async (event) => {
-        // event.preventDefault()
+        event.preventDefault()
         const data = new FormData(event.target)
-
-        fetch("http://localhost:5000/api/v.0.1/products",
-            {
-                method: "POST",
-                body: data
+        Http.post('/products', data)
+            .then(result => {
+                window.location.href = '/home'
             })
-        // window.location.href = '/home'
+            .catch(err => {
+                console.log(err)
+            })
     }
 
     render() {
         return (
             <form onSubmit={this.handleSubmit} >
-                <div className="modal fade" id="addData" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal fade" id="addData" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div className="modal-dialog" role="document">
                         <div className="modal-content">
                             <div className="modal-header">
@@ -37,7 +38,7 @@ export default class modal extends Component {
                                         <label>Name</label>
                                     </div>
                                     <div className="col-md-10">
-                                        <div class="form-group">
+                                        <div className="form-group">
                                             <input type="text" name="name" className="form-control" />
                                         </div>
                                     </div>
@@ -45,23 +46,23 @@ export default class modal extends Component {
                                         <label>Desciption</label>
                                     </div>
                                     <div className="col-md-10">
-                                        <div class="form-group">
-                                            <textarea name="description" class="form-control"></textarea>
+                                        <div className="form-group">
+                                            <textarea name="description" className="form-control"></textarea>
                                         </div>
                                     </div>
                                     <div className="col-md-2">
                                         <label>Image</label>
                                     </div>
                                     <div className="col-md-10">
-                                        <div class="form-group">
-                                            <input type="file" name="image" class="form-control-file" id="image" />
+                                        <div className="form-group">
+                                            <input type="file" name="image" className="form-control-file" id="image" />
                                         </div>
                                     </div>
                                     <div className="col-md-2">
                                         <label>Category</label>
                                     </div>
                                     <div className="col-md-10">
-                                        <div class="form-group">
+                                        <div className="form-group">
                                             <select className="form-control" name="id_category">
                                                 <option value="5">Food</option>
                                                 <option value="4">Fast Food</option>
@@ -73,16 +74,16 @@ export default class modal extends Component {
                                         <label>Price</label>
                                     </div>
                                     <div className="col-md-10">
-                                        <div class="form-group">
-                                            <input type="text" name="price" class="form-control" id="exampleFormControlFile1" />
+                                        <div className="form-group">
+                                            <input type="text" name="price" className="form-control" id="exampleFormControlFile1" />
                                         </div>
                                     </div>
                                     <div className="col-md-2">
                                         <label>Quantity</label>
                                     </div>
                                     <div className="col-md-10">
-                                        <div class="form-group">
-                                            <input type="text" name="quantity" class="form-control" id="exampleFormControlFile1" />
+                                        <div className="form-group">
+                                            <input type="text" name="quantity" className="form-control" id="exampleFormControlFile1" />
                                         </div>
                                     </div>
                                 </div>

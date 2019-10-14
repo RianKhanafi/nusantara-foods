@@ -5,6 +5,9 @@ import axios from 'axios'
 import Chart from '../Components/Chart'
 import RecentOrder from '../Components/RecentOrder'
 import CardRevenue from '../Components/CardRevenue'
+// base url
+import Http from '../Http/Http'
+
 class History extends Component {
     constructor(props) {
         super()
@@ -13,86 +16,96 @@ class History extends Component {
             order: [],
             count: 0,
             orders: 0,
-            resYearIncome: 0
+            growth: 0,
+            resYearIncome: 0,
+            recentData: [],
+            growthOrdeWeek: 0,
+            yearCount: 0
         }
         this.getRecentOrder = this.getRecentOrder.bind(this)
-        // this.handleOrder = this.handleOrder.bind(this)
     }
     async componentDidMount() {
-        await this.getRecent()
         await this.getCountOrder()
-        this.getStartRecentOrder()
-        // this.getRecentOrder()
-        // console.log('ComponentDidMount', this.state.data)
+        // await this.getValue()
     }
-    getRecent = async () => {
-        axios.get('http://localhost:5000/api/v.0.1/recentorder')
-            .then(result => {
-                console.log(result)
-                this.setState({
-                    data: [result.data.data]
-                })
-            })
-    }
-    // getRecent = async () => {
-    //     axios.get('http://localhost:5000/api/v.0.1/recentorder')
-    //         .then(result => {
-    //             // console.log(result)
-    //             this.setState({
-    //                 data: result.data.data
-    //             })
-    //         })
-    // }
+
+    // Card
     getCountOrder = async () => {
-        // console.log('err')
-        axios.get('http://localhost:5000/api/v.0.1/countorders')
+        Http.get('/countorders')
             .then(result => {
-                // console.log(result.data.data.rcAmount[0].countAmount)
-                // console.log(result.data.data.resYearIncome[0].countAmount)
+                let growthCount = ((result.data.data[0].daynow - result.data.data[0].yesterday) / result.data.data[0].yesterday) * 100
+                let gowCount = ((result.data.data[0].weeknow - result.data.data[0].lastweek) / result.data.data[0].lastweek) * 100
+                let yearCount = ((result.data.data[0].yearnow - result.data.data[0].yearlast) / result.data.data[0].yearlast * 100)
                 this.setState({
-                    count: result.data.data.rcAmount[0].countAmount,
-                    orders: result.data.data.resCount[0].idRecent,
-                    resYearIncome: result.data.data.resYearIncome[0].countAmount
+                    count: result.data.data[0].daynow,
+                    orders: result.data.data[0].dayordernnow,
+                    resYearIncome: result.data.data[0].yearnow,
+                    growth: growthCount.toFixed(1),
+                    growthOrdeWeek: gowCount.toFixed(1),
+                    yearCount: yearCount.toFixed(1)
                 })
             }).catch(err => {
                 console.log(err)
             })
     }
-    getStartRecentOrder = async () => {
-        axios.get('http://localhost:5000/api/v.0.1/recentorder?order=week')
-            .then(result => {
-                this.setState({ data: result.data.data })
-            })
 
-    }
+    // grafik
     getRecentOrder = async (event) => {
-        // let data = 'week'
         let data = event.target.value
-        axios.get('http://localhost:5000/api/v.0.1/recentorder?order=' + data)
+        Http.get(`/recentorder?order=${data}`)
             .then(result => {
                 this.setState({
                     data: result.data.data,
                     order: data
                 })
             })
+            .catch(err => {
+                console.log(err)
+            })
+    }
+
+    // show recent order
+    grOrder = async (event) => {
+        let data = event.target.value
+        Http.get(`/grOrder?order=${data}`)
+            .then(result => {
+                this.setState({
+                    recentData: result.data.data
+                })
+            })
     }
 
     render() {
-        // console.log(this.state.order)
+
+        // card if null
+        if (this.state.count === null) {
+            this.state.count = 0;
+        }
+
         return (
-            <div> <Navigations />
-                {/* <input class="form-control mr-sm-2" value={this.state.search} onChange={this.updateSearch.bind(this)} type="search" placeholder="Search" aria-label="Search" /> */}
+            <div>
+                <div className="row">
+                    <div className="col-md-12  mr-0 pr-0">
+                        <nav className="navbar navbar-light bg-nav">
+                            <button className="navbar-toggler" id="side-toggle" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                            </button>
+                            <a className="navbar-brand">History</a>
+                            <form className="form-inline">
+                                <span className="fa fa-search text-white"></span>
+                            </form>
+                        </nav>
+                    </div>
+                </div>
                 <div className="row">
                     <div className="col-md-1 sidebar text-center">
                         <ul className="list-group list-group-flush mt-2">
-                            <li className="list-group-item mb-2  border-0" ><span className="fa fa-cutlery fa-2x text-dark"></span></li>
-                            <li className="list-group-item  mb-2  border-0"><span className="fa fa-list fa-2x text-dark"></span></li>
-                            <li className="list-group-item  mb-2  border-0" data-toggle="modal" data-target="#addData"><span className="fa fa-plus fa-2x text-dark"></span></li>
+                            <li className="list-group-item mb-2  border-0" ><a href='/home'><span className="fa fa-cutlery fa-2x text-dark"></span></a></li>
+                            <li className="list-group-item  mb-2  border-0"><a href='/history'><span className="fa fa-history fa-2x text-dark"></span></a></li>
                             <li className="list-group-item  mb-2  border-0"><a href="#"><span className="fa fa-sign-out fa-2x text-dark" onClick={this.handleLogout}></span></a></li>
                         </ul>
                     </div>
                     <div className="col-md-11">
-                        <div class="row  mt-3">
+                        <div className="row  mt-3">
                             <div className="col-md-3 pt-2">
                             </div>
                             <div className="col-md-3 pt-2">
@@ -101,7 +114,7 @@ class History extends Component {
                             </div>
                         </div>
                         <div className="container">
-                            <CardRevenue handleCardRevenue={this.state.data} handleCountOrder={this.state.count} handleOrder={this.state.orders} handleresYearIncome={this.state.resYearIncome} />
+                            <CardRevenue handleCardRevenue={this.state.data} handleGrowth={this.state.growth} handleCountOrder={this.state.count} handleOrder={this.state.orders} handleresYearIncome={this.state.resYearIncome} handlegowCount={this.state.growthOrdeWeek} handleYearCount={this.state.yearCount} />
                         </div>
 
                         {/* chart */}
@@ -117,26 +130,16 @@ class History extends Component {
                                         <option value="year">Year</option>
                                     </select>
                                 </div>
-                                {/* <div className="col">
-                                </div> */}
                                 <div className="col-md-12">
                                     <Chart handelChart={this.state.data} handleOrder={this.state.order} />
                                 </div>
                             </div>
                         </div>
-
-
-                        {/* Recent Order */}
-
                         <div className="container">
-                            <RecentOrder recentOrder={this.state.data} getRecentOrder={this.getRecentOrder} />
+                            <RecentOrder recentOrder={this.state.recentData} grOrder={this.grOrder} />
                         </div>
                     </div>
                 </div>
-
-                {/* <Modal />
-<Cout cartItem={this.state.cartItem} /> */}
-
             </div >
         )
     }

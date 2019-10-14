@@ -31,9 +31,9 @@ is an frontend application for making orders in at the nusantara food
 - Login
 ![image](https://user-images.githubusercontent.com/51011550/66734754-82477a80-ee8e-11e9-8e70-ccd506a66675.png)
 - Home screen
-![image](https://user-images.githubusercontent.com/51011550/66734976-4a8d0280-ee8f-11e9-9f5e-3dfe6ec569b2.png)
-- Add menu
 ![image](https://user-images.githubusercontent.com/51011550/66734949-347f4200-ee8f-11e9-8b44-fecc447f4e24.png)
+- Add menu
+![image](https://user-images.githubusercontent.com/51011550/66734976-4a8d0280-ee8f-11e9-9f5e-3dfe6ec569b2.png)
 - Checkout
 ![image](https://user-images.githubusercontent.com/51011550/66735163-cedf8580-ee8f-11e9-8ddb-9ec7046ff452.png)
 - Chart

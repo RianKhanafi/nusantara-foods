@@ -20,3 +20,10 @@ is an frontend application for making orders in at the nusantara food
   - income and order information
   - Chart Revenue
   - Recent Order
+
+# Run Program 
+  - Clone or download thi repository https://github.com/RianKhanafi/nusantara-foods.git
+  - Choose folder and run in your command
+  ```
+  $npm start
+  ```

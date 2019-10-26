@@ -56,6 +56,6 @@ visit the link below to get a backend for the Nusantara Food food
 - __Checkout__
 
 ![image](https://user-images.githubusercontent.com/51011550/66734976-4a8d0280-ee8f-11e9-9f5e-3dfe6ec569b2.png)
-- __Chart__
+- __History__
 
 ![Tangkapan Layar 2019-10-14 pada 14 39 28-fullpage](https://user-images.githubusercontent.com/51011550/66735471-a1dfa280-ee90-11e9-9f9b-ece37e9636cb.png)

@@ -7,17 +7,17 @@
 - Axios
 
 ## Features
-* Register user
-* Login user
-* Log out
-* Home screen
+- [x] Register user
+- [x] Login user
+- [x] Log out
+- [x] Home screen
   - Chart
   - Search
   - Pagination
-* Add menu
-* Update menu
-* Delete menu
-* History
+- [x] Add menu
+- [x] Update menu
+- [x] Delete menu
+- [x] History
   - income and order information
   - Chart Revenue
   - Recent Order

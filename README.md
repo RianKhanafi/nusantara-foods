@@ -32,20 +32,13 @@
 ```
   API_BASE_URL= pointofsale backend url
 ```
+## Backend for Nusantara Food
 [Backend Point of Sale](https://github.com/RianKhanafi/restfulapi-pointofsale)
 
 ## Start Nusantara Food
 ```
   $ npm start
 ```
-
-
-## Run Program 
-  - Clone or download this repository https://github.com/RianKhanafi/nusantara-foods.git
-  - Choose folder and run in your command
-  ```
-  $npm start
-  ```
 ## Demo Screenshoot
 
 - __Login__

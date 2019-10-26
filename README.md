@@ -33,6 +33,7 @@
   API_BASE_URL= pointofsale backend url
 ```
 ## Backend for Nusantara Food
+visit the link below to get a backend for the archipelago food
 [Backend Point of Sale](https://github.com/RianKhanafi/restfulapi-pointofsale)
 
 ## Start Nusantara Food

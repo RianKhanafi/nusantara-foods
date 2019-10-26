@@ -1,11 +1,12 @@
-# About the nusantara-food
-is an frontend application for making orders in at the nusantara food
+# About the Nusantara Food
+> is an frontend application for making orders in at the nusantara food
 
-# Requirement
+## Requirement
 - React js
 - Redux
+- Axios
 
-# Features
+## Features
 * Register user
 * Login user
 * Log out
@@ -21,13 +22,31 @@ is an frontend application for making orders in at the nusantara food
   - Chart Revenue
   - Recent Order
 
-# Run Program 
+## Instalation
+  Clone
+  ```
+  $ git clone https://github.com/RianKhanafi/nusantara-foods.git
+  $ cd restfulapi-pointofsale
+  ```
+## Setup .env
+```
+  API_BASE_URL= pointofsale backend url
+```
+[Backend Point of Sale](https://github.com/RianKhanafi/restfulapi-pointofsale)
+
+## Start Nusantara Food
+```
+  $ npm start
+```
+
+
+## Run Program 
   - Clone or download this repository https://github.com/RianKhanafi/nusantara-foods.git
   - Choose folder and run in your command
   ```
   $npm start
   ```
-# Demo Screenshoot
+## Demo Screenshoot
 
 - __Login__
 ![image](https://user-images.githubusercontent.com/51011550/66734754-82477a80-ee8e-11e9-8e70-ccd506a66675.png)

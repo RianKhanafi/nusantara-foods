@@ -32,6 +32,14 @@
 ```
   API_BASE_URL= pointofsale backend url
 ```
+## Backend for Nusantara Food
+visit the link below to get a backend for the Nusantara Food food
+[Backend Point of Sale](https://github.com/RianKhanafi/restfulapi-pointofsale)
+
+## Start Nusantara Food
+```
+  $ npm start
+```
 ## You can click link below to open this website
 [Click Here!](https://nusantara-foods.herokuapp.com])
 
@@ -43,15 +51,6 @@ and use this account to login application
 ```
 Username: admin@gmail.com
 Password: admin123
-```
-
-## Backend for Nusantara Food
-visit the link below to get a backend for the Nusantara Food food
-[Backend Point of Sale](https://github.com/RianKhanafi/restfulapi-pointofsale)
-
-## Start Nusantara Food
-```
-  $ npm start
 ```
 ## Demo Screenshoot
 

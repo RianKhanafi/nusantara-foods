@@ -35,7 +35,8 @@
 ## or You Can Click link below
 
 [https://nusantara-foods.herokuapp.com](https://nusantara-foods.herokuapp.com])
-and use this accout to login application 
+
+and use this account to login application 
 ```
 Username: admin@gmail.com
 Password: admin123

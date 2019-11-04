@@ -34,7 +34,7 @@
 ```
 ## or You Can Click link below
 
-[https://nusantara-foods.herokuapp.com](https://nusantara-foods.herokuapp.com])
+[Click Here!](https://nusantara-foods.herokuapp.com])
 
 and use this account to login application 
 ```

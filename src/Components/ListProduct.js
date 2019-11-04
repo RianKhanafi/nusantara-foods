@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import rupiahFormat from 'rupiah-format'
 import Http from '../Http/Http'
+import Image from '../Image/noimage.png'
 
 export default class ProductList extends Component {
 
@@ -148,7 +149,9 @@ export default class ProductList extends Component {
             <div className="col-md-4 col-sm-8 col-xs-12 mb-2">
                 <div className="card">
                     <div className="card-img">
-                        <img src={'http://localhost:5000/images/' + item.image} className="card-img-top" alt="..." />
+                        {item.image !== ''?(<img src={'http://localhost:5000/images/' + item.image} className="card-img-top" alt="..." />):(
+                            <img src={Image} className="card-img-top" alt="..." />
+                     )} 
                     </div>
                     <div className="card-body">
                         <div className="delete float-right">

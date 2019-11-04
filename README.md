@@ -32,10 +32,13 @@
 ```
   API_BASE_URL= pointofsale backend url
 ```
-## or You Can Click link below
-
+## You Can Click link below to open this website
 [Click Here!](https://nusantara-foods.herokuapp.com])
 
+### or copy link below!
+```
+https://nusantara-foods.herokuapp.com
+```
 and use this account to login application 
 ```
 Username: admin@gmail.com

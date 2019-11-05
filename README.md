@@ -49,7 +49,7 @@ https://nusantara-foods.herokuapp.com
 ```
 and use this account to login application 
 ```
-Username: admin@gmail.com
+Username: admin1@gmail.com
 Password: admin123
 ```
 ## Demo Screenshoot

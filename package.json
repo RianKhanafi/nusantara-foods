@@ -9,7 +9,7 @@
     "canvasjs": "^1.8.1",
     "cowsay": "^1.4.0",
     "font-awesome": "^4.7.0",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "local-storage": "^2.0.0",
     "mdbreact": "^4.21.0",
     "react": "^16.10.1",
